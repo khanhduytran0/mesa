@@ -17,6 +17,7 @@ case $1 in
     --modversion)
         if [ $2 = "vulkan" ]; then
             echo "-lvulkan"
+            ln -s /usr/bin/pkg-config $0
             exit 0
         fi
         ;;
