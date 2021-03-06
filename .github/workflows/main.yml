@@ -19,17 +19,19 @@ jobs:
           meson build-android-aarch64 \
             --prefix=/tmp/zink \
             --cross-file android-aarch64 \
-            -Dplatforms=android \
+            -Dplatforms=x11 \
             -Dplatform-sdk-version=25 \
             -Dandroid-stub=true \
-            -Dgbm=disabled \
             -Degl=disabled \
+            -Dgbm=disabled \
+            -Dglx=disabled \
             -Dgles1=disabled \
             -Dgles2=disabled \
             -Dopengl=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
           ninja -C build-android-aarch64 install
+          cp build-android-aarch64/src/gallium/drivers/zink/libzink.a /tmp/zink/lib/
 
       - name: Upload libraries
         uses: actions/upload-artifact@v2
