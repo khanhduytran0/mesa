@@ -22,7 +22,6 @@ jobs:
             -Dplatforms=android \
             -Dplatform-sdk-version=25 \
             -Dandroid-stub=true \
-            -Dosmesa=gallium \
             -Dgbm=disabled \
             -Degl=disabled \
             -Dopengl=true \
