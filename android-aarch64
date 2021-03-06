@@ -10,7 +10,7 @@ strip = '/usr/local/lib/android/sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x8
 # directory we get to populate with any .pc files we want to add for Android
 # pkgconfig = ['env', 'PKG_CONFIG_LIBDIR=/usr/local/lib/android/sdk/ndk-bundle/pkgconfig', '/usr/bin/pkg-config']
 
-pkgconfig = ['echo', '-lvulkan', '&&', '>&2', 'echo']
+pkgconfig = ['bash', '/home/runner/work/mesa/mesa/fake-pkgconfig']
 
 [host_machine]
 system = 'linux'
