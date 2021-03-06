@@ -23,7 +23,7 @@ jobs:
             -Dplatform-sdk-version=25 \
             -Dandroid-stub=true \
             -Dgbm=disabled \
-            -Degl=enabled \
+            -Degl=disabled \
             -Dopengl=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
