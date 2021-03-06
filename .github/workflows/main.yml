@@ -23,7 +23,7 @@ jobs:
             --prefix=/tmp/zink \
             -Dplatforms=x11 \
             -Dxlib-lease=disabled \
-            -Degl=disabled \
+            -Degl=enabled \
             -Dgbm=disabled \
             -Dglx=disabled \
             -Dgles1=disabled \
