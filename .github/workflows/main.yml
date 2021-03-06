@@ -10,23 +10,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
       - name: Build
         run: |
           sudo apt install meson
           pip3 install mako
           export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk-bundle"
           meson build-android-aarch64 \
+            --prefix=/tmp/zink \
             --cross-file android-aarch64 \
             -Dplatforms=android \
             -Dplatform-sdk-version=25 \
             -Dandroid-stub=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
-          ninja -C build-android-aarch64
+          ninja -C build-android-aarch64 install
 
-      - name: Upload IPA
+      - name: Upload libraries
         uses: actions/upload-artifact@v2
         with:
           name: libzink
-          path: build-android-aarch64/src/gallium/drivers/zink/libzink.a
+          path: /tmp/zink
