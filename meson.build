@@ -844,7 +844,8 @@ endif
 
 with_android_stub = get_option('android-stub')
 if with_android_stub and not with_platform_android
-  error('`-D android-stub=true` makes no sense without `-D platforms=android`')
+  # error
+  warning('`-D android-stub=true` makes no sense without `-D platforms=android`')
 endif
 
 if with_platform_android
