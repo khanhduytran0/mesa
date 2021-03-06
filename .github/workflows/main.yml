@@ -24,6 +24,8 @@ jobs:
             -Dandroid-stub=true \
             -Dgbm=disabled \
             -Degl=disabled \
+            -Dgles1=disabled \
+            -Dgles2=disabled \
             -Dopengl=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
