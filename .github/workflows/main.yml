@@ -13,7 +13,6 @@ jobs:
 
       - name: Build
         run: |
-          ls /usr/local/lib/android/sdk/ndk-bundle/pkgconfig
           sudo apt install meson
           export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk-bundle"
           meson build-android-aarch64 \
