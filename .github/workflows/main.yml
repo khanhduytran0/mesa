@@ -14,4 +14,10 @@ jobs:
       - name: Build
         run: |
           export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk-bundle"
-          $ANDROID_NDK_HOME/ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=./Android.mk
+          meson build-android-aarch64 \
+            --cross-file android-aarch64 \
+            -Dplatforms=android \
+            -Dplatform-sdk-version=24 \
+            -Dandroid-stub=true \
+            -Dgallium-drivers=zink \
+          ninja -C build-android-aarch64
