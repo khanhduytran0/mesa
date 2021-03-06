@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# this is a fake pkg-config since meson requires pkg-config if you want to
+# include external libraries like libvulkan. The Android NDK does not provide
+# any kind of pkg-config.
+
+case $1 in
+    --modversion)
+        if [ $2 = "vulkan" ]; then
+            echo "-lvulkan"
+        fi
+        ;;
+    *)
+        // echo "fake pkg-config for Android NDK build!"
+        pkg-config $@
+        ;;
+esac
+pkg-config $@
