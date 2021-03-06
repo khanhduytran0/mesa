@@ -24,3 +24,9 @@ jobs:
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
           ninja -C build-android-aarch64
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v2
+        with:
+          name: libzink
+          path: src/gallium/drivers/zink/libzink.a
