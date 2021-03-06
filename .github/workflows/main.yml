@@ -20,5 +20,5 @@ jobs:
             -Dplatforms=android \
             -Dplatform-sdk-version=24 \
             -Dandroid-stub=true \
-            -Dgallium-drivers=zink \
+            -Dgallium-drivers=zink
           ninja -C build-android-aarch64
