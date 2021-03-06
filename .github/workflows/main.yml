@@ -13,6 +13,7 @@ jobs:
 
       - name: Build
         run: |
+          sudo apt install meson ninja
           export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk-bundle"
           meson build-android-aarch64 \
             --cross-file android-aarch64 \
