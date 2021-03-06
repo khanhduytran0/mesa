@@ -6,7 +6,8 @@ set -e
 # this is a fake pkg-config since meson requires pkg-config if you want to
 # include external libraries like libvulkan. The Android NDK does not provide
 # any kind of pkg-config.
-
+echo "-lvulkan"
+            exit 0
 case $1 in
     --modversion)
         if [ $2 = "vulkan" ]; then
