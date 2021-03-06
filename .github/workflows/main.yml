@@ -23,6 +23,7 @@ jobs:
             -Dplatform-sdk-version=25 \
             -Dandroid-stub=true \
             -Degl=enabled \
+            -Dopengl=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
           ninja -C build-android-aarch64 install
