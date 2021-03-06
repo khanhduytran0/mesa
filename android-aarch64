@@ -1,0 +1,17 @@
+[binaries]
+ar = 'NDKDIR/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-ar'
+c = ['ccache', 'NDKDIR/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android29-clang']
+cpp = ['ccache', 'NDKDIR/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android29-clang++', '-fno-exceptions', '-fno-unwind-tables', '-fno-asynchronous-unwind-tables', '-static-libstdc++']
+c_ld = 'lld'
+cpp_ld = 'lld'
+strip = 'NDKDIR/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-strip'
+# Android doesn't come with a pkg-config, but we need one for meson to be happy not
+# finding all the optional deps it looks for.  Use system pkg-config pointing at a
+# directory we get to populate with any .pc files we want to add for Android
+pkgconfig = ['env', 'PKG_CONFIG_LIBDIR=NDKDIR/pkgconfig', '/usr/bin/pkg-config']
+
+[host_machine]
+system = 'linux'
+cpu_family = 'arm'
+cpu = 'armv8'
+endian = 'little'
