@@ -20,5 +20,6 @@ jobs:
             -Dplatforms=android \
             -Dplatform-sdk-version=25 \
             -Dandroid-stub=true \
+            -Dvulkan-drivers= \
             -Dgallium-drivers=zink
           ninja -C build-android-aarch64
