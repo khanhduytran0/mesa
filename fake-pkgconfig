@@ -15,8 +15,8 @@ case $1 in
         fi
         ;;
     *)
-        // echo "fake pkg-config for Android NDK build!"
+        # echo "fake pkg-config for Android NDK build!"
         pkg-config $@
         ;;
 esac
-// pkg-config $@
+# pkg-config $@
