@@ -9,6 +9,11 @@ set -e
 echo "-lvulkan"
             exit 0
 case $1 in
+    --exists)
+        if [ $2 = "vulkan" ]; then
+            exit 0
+        fi
+        ;;
     --modversion)
         if [ $2 = "vulkan" ]; then
             echo "-lvulkan"
