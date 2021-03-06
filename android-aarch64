@@ -8,7 +8,9 @@ strip = '/usr/local/lib/android/sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x8
 # Android doesn't come with a pkg-config, but we need one for meson to be happy not
 # finding all the optional deps it looks for.  Use system pkg-config pointing at a
 # directory we get to populate with any .pc files we want to add for Android
-pkgconfig = ['env', 'PKG_CONFIG_LIBDIR=/usr/local/lib/android/sdk/ndk-bundle/pkgconfig', '/usr/bin/pkg-config']
+# pkgconfig = ['env', 'PKG_CONFIG_LIBDIR=/usr/local/lib/android/sdk/ndk-bundle/pkgconfig', '/usr/bin/pkg-config']
+
+pkgconfig = ['echo', '-lvulkan', '&&', '>&2', 'echo']
 
 [host_machine]
 system = 'linux'
