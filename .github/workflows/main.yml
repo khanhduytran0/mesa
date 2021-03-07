@@ -13,7 +13,7 @@ jobs:
 
       - name: Build
         run: |
-          sudo apt install -y meson libx11-dev
+          sudo apt install -y meson libxrandr-dev libxxf86vm-dev libxshmfence-dev libxcb-*-dev libx11-xcb-dev libxfixes-dev libdrm-dev libx11-dev
           cp -R /usr/include/X11 include/
           cp -R /usr/include/xcb include/
           cp -R /usr/include/GL/* include/GL/
@@ -29,7 +29,7 @@ jobs:
             -Dllvm=disabled \
             -Dxlib-lease=disabled \
             -Degl=disabled \
-            -Dglx=enabled \
+            -Dglx=dri \
             -Dgbm=disabled \
             -Dopengl=true \
             -Dvulkan-drivers= \
