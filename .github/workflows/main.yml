@@ -28,7 +28,7 @@ jobs:
             -Dglx=gallium-xlib \
             -Dopengl=true \
             -Dvulkan-drivers= \
-            -Dgallium-drivers=zink,swrast
+            -Dgallium-drivers=zink
           ## disable swrast for libGL fixme
           ninja -C build-android-aarch64 install
           cp build-android-aarch64/src/gallium/drivers/zink/libzink.a /tmp/zink/lib/
