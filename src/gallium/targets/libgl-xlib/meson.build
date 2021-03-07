@@ -37,12 +37,9 @@ if with_shared_glapi
   gallium_xlib_link_with += libglapi
 endif
 
-# Android: remove
-# files('xlib.c'),
-
 libgl = shared_library(
   'GL',
-  files(),
+  files('xlib.c'),
   include_directories : [
     inc_include, inc_src, inc_mapi, inc_mesa, inc_gallium, inc_gallium_aux, inc_gallium_winsys, inc_gallium_drivers,
     include_directories('../../frontends/glx/xlib'),
