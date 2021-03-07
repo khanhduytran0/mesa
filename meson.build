@@ -329,8 +329,7 @@ if _platforms.contains('auto')
 endif
 
 with_platform_android = _platforms.contains('android')
-with_platform_x11 = _platforms.contains('x11')
-# or with_platform_android
+with_platform_x11 = _platforms.contains('x11') or with_platform_android
 with_platform_wayland = _platforms.contains('wayland')
 with_platform_haiku = _platforms.contains('haiku')
 with_platform_windows = _platforms.contains('windows')
@@ -444,7 +443,7 @@ endif
 
 if with_glx != 'disabled'
   if not (with_platform_x11 and with_any_opengl)
-    error('Cannot build GLX support without X11 platform support and at least one OpenGL API')
+    warning('Cannot build GLX support without X11 platform support and at least one OpenGL API')
   elif with_glx == 'gallium-xlib'
     if not with_gallium
       error('Gallium-xlib based GLX requires at least one gallium driver')
