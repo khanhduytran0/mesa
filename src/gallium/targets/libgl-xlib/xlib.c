@@ -89,9 +89,7 @@ static void _init( void )
 {
    /* Initialize the xlib libgl code, pass in the winsys:
     */
-#ifndef __ANDROID__
    xmesa_set_driver( &xlib_driver );
-#endif
 }
 
 
