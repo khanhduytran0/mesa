@@ -18,6 +18,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+if not with_platform_android
+
 libxlib = static_library(
   'xlib',
   files('glx_api.c', 'glx_getproc.c', 'glx_usefont.c', 'xm_api.c', 'xm_st.c'),
@@ -25,3 +27,15 @@ libxlib = static_library(
   include_directories : [inc_include, inc_src, inc_gallium, inc_gallium_aux, inc_mapi, inc_mesa],
   dependencies : [dep_x11, dep_xext, dep_xcb, dep_glproto],
 )
+
+else
+
+libxlib = static_library(
+  'xlib',
+  files(),
+  gnu_symbol_visibility : 'hidden',
+  include_directories : [inc_include, inc_src, inc_gallium, inc_gallium_aux, inc_mapi, inc_mesa],
+  dependencies : [dep_x11, dep_xext, dep_xcb, dep_glproto],
+)
+
+endif
