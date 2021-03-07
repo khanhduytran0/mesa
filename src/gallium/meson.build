@@ -179,7 +179,7 @@ if with_osmesa == 'gallium'
   subdir('frontends/osmesa')
   subdir('targets/osmesa')
 endif
-if with_glx == 'gallium-xlib'
+if with_glx == 'gallium-xlib' and not with_platform_android
   subdir('winsys/sw/xlib')
   subdir('frontends/glx/xlib')
   subdir('targets/libgl-xlib')
