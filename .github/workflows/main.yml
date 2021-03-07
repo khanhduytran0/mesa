@@ -25,7 +25,7 @@ jobs:
             -Dxlib-lease=disabled \
             -Degl=disabled \
             -Dgbm=disabled \
-            -Dglx=disabled \
+            -Dglx=gallium-xlib \
             -Dopengl=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
