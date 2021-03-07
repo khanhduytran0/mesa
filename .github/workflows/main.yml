@@ -13,7 +13,9 @@ jobs:
 
       - name: Build
         run: |
-          sudo apt install meson
+          sudo apt install -y meson libx11-dev
+          cp -R /usr/include/X11 include/
+          cp -R /usr/include/xcb include/
           pip3 install mako
           export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk-bundle"
           meson build-android-aarch64 \
