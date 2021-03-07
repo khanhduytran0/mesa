@@ -22,9 +22,13 @@
 # Static targets are always enabled in autotools (unless you modify
 # configure.ac)
 
+if not with_platform_android
 gallium_xlib_c_args = [
   '-DGALLIUM_SOFTPIPE',
 ]
+else
+gallium_xlib_c_args = []
+endif
 gallium_xlib_ld_args = []
 gallium_xlib_link_with = []
 gallium_xlib_link_depends = []
