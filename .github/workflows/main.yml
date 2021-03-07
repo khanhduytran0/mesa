@@ -25,6 +25,7 @@ jobs:
             -Dplatforms=android \
             -Dplatform-sdk-version=25 \
             -Dandroid-stub=true \
+            -Dllvm=disabled \
             -Dxlib-lease=disabled \
             -Degl=disabled \
             -Dgbm=disabled \
