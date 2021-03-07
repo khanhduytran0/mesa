@@ -29,8 +29,9 @@ jobs:
             -Dllvm=disabled \
             -Dxlib-lease=disabled \
             -Degl=disabled \
-            -Dglx=dri \
             -Dgbm=disabled \
+            -Dglx=dri \
+            -Dglx-direct=true \
             -Dopengl=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
