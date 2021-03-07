@@ -25,6 +25,7 @@ if with_dri_platform == 'windows'
   subdir('windows')
 endif
 
+if not with_platform_android
 files_libglx = files(
   'clientattrib.c',
   'clientinfo.c',
@@ -72,6 +73,9 @@ files_libglx = files(
   'vertarr.c',
   'xfont.c',
 )
+else
+files_libglx = files()
+endif
 
 extra_libs_libglx = []
 extra_deps_libgl = []
