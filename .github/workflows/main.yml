@@ -29,6 +29,7 @@ jobs:
             -Dllvm=disabled \
             -Dxlib-lease=disabled \
             -Degl=disabled \
+            -Dglx=enabled \
             -Dgbm=disabled \
             -Dopengl=true \
             -Dvulkan-drivers= \
