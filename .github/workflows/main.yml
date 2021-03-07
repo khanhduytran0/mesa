@@ -16,18 +16,16 @@ jobs:
           sudo apt install meson
           pip3 install mako
           export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk-bundle"
-          #  -Dplatform-sdk-version=25 \
-          #  -Dandroid-stub=true \
           meson build-android-aarch64 \
             --prefix=/tmp/zink \
-            --cross-file android-aarch64-fake \
-            -Dplatforms=x11 \
+            --cross-file android-aarch64 \
+            -Dplatforms=android \
+            -Dplatform-sdk-version=25 \
+            -Dandroid-stub=true \
             -Dxlib-lease=disabled \
             -Degl=enabled \
             -Dgbm=disabled \
             -Dglx=disabled \
-            -Dgles1=disabled \
-            -Dgles2=disabled \
             -Dopengl=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
