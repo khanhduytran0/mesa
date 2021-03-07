@@ -118,7 +118,7 @@ endif
 
 # This must be after at least mesa, glx, and gallium, since libgl will be
 # defined in one of those subdirs depending on the glx provider.
-if with_glx != 'disabled' and not with_glvnd
+# if with_glx != 'disabled' and not with_glvnd
   pkg.generate(
     name : 'gl',
     description : 'Mesa OpenGL Library',
@@ -128,4 +128,4 @@ if with_glx != 'disabled' and not with_glvnd
     requires_private : gl_priv_reqs,
     variables : ['glx_tls=@0@'.format(use_elf_tls ? 'yes' : 'no')],
   )
-endif
+# endif
