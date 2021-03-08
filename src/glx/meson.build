@@ -161,8 +161,7 @@ libgl = shared_library(
   [],
   link_with : [libglapi],
   link_whole : [
-    libglx, libglapi_static,
-    libmesa_gallium, libdricommon, libmegadriver_stub,
+    libglx, libglapi_static, libdricommon, libmegadriver_stub,
   ],
   link_args : [ld_args_bsymbolic, ld_args_gc_sections, extra_ld_args_libgl],
   dependencies : [
