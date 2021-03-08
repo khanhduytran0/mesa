@@ -13,5 +13,5 @@ pkgconfig = ['env', 'PKG_CONFIG_LIBDIR=/home/runner/work/mesa/mesa', '/usr/bin/p
 [host_machine]
 system = 'linux'
 cpu_family = 'x86_64'
-cpu = 'x86_64'
+cpu = 'amd64'
 endian = 'little'
