@@ -155,7 +155,7 @@ libglx = static_library(
 )
 
 # link_with : [libglapi],
-# libwsw, libswdri, libswkmsdri,
+# libwsw, libswdri, libswkmsdri, libws_null,
 libgl = shared_library(
   gl_lib_name,
   [],
@@ -163,7 +163,6 @@ libgl = shared_library(
   link_whole : [
     libglx, libglapi_static,
     libmesa_gallium, libdricommon, libmegadriver_stub,
-    libws_null,
   ],
   link_args : [ld_args_bsymbolic, ld_args_gc_sections, extra_ld_args_libgl],
   dependencies : [
