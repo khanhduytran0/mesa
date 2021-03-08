@@ -20,6 +20,7 @@
 
 inc_st_dri = include_directories('.')
 
+if not with_platform_android or with_glx != 'dri'
 files_libdri = files(
   'dri_context.c',
   'dri_context.h',
@@ -39,6 +40,9 @@ endif
 
 if with_dri2
   files_libdri += files('dri2.c')
+endif
+else
+  files_libdri = files()
 endif
 
 libdri_c_args = []
