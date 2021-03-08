@@ -171,7 +171,7 @@ if with_gallium_opencl
   subdir('frontends/clover')
   subdir('targets/opencl')
 endif
-if with_dri
+if with_dri and (not with_platform_android or with_glx != 'dri')
   subdir('frontends/dri')
   subdir('targets/dri')
 endif
