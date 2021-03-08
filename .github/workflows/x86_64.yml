@@ -1,4 +1,5 @@
 
+
 name: Build x86_64
 
 on:
@@ -6,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
@@ -35,10 +36,8 @@ jobs:
             -Dopengl=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
-          ## disable swrast for libGL fixme
-          ninja -C build-android-aarch64 install
-          find build-android-aarch64 -name \*.a -exec cp {} /tmp/zink/lib/ \;
-
+          ninja -C build-android-x86_64 install
+          cp build-android-x86_64/src/gallium/drivers/zink/libzink.a /tmp/zink/lib/
       - name: Upload libraries
         uses: actions/upload-artifact@v2
         with:
