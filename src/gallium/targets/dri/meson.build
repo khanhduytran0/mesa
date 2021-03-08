@@ -39,7 +39,7 @@ endif
 
 libgallium_dri = shared_library(
   'gallium_dri',
-  files('target.c'),
+  (not with_platform_android or with_glx != 'dri') ? files('target.c') : files(),
   include_directories : [
     inc_include, inc_src, inc_mapi, inc_mesa, inc_gallium, inc_gallium_aux, inc_util, inc_dri_common, inc_gallium_drivers,
     inc_gallium_winsys, include_directories('../../frontends/dri'),
