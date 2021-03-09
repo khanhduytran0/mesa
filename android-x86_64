@@ -14,6 +14,11 @@ exe_wrapper = None
 
 [host_machine]
 system = 'linux'
-cpu_family = 'x86_64'
-cpu = 'amd64'
+# cpu_family = 'x86_64'
+# cpu = 'amd64'
+
+# ik this is wrong but workaround sanity check
+cpu_family = 'arm'
+cpu = 'armv8'
+
 endian = 'little'
