@@ -31,7 +31,6 @@ files_libdri = files(
   'dri_query_renderer.h',
   'dri_screen.c',
   'dri_screen.h',
-  'xf86drm.c',
 )
 
 if with_dri
@@ -57,4 +56,5 @@ libdri = static_library(
   c_args : [libdri_c_args],
   gnu_symbol_visibility : 'hidden',
   dependencies : dep_libdrm,
+  link_with : with_dri2 ? libxf86drm : [],
 )
