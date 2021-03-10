@@ -85,6 +85,23 @@ g_egldispatchstubs_h = custom_target(
 )
 
 if with_dri2
+
+libxf86drm = static_library(
+  'xf86drm',
+  files('drivers/dri2/xf86drm.c'),
+  include_directories : [inc_include],
+  link_with : [],
+  dependencies : [],
+  c_args : [],
+  gnu_symbol_visibility : 'hidden',
+)
+
+libegl = static_library(
+  egl_lib_name,
+  files('drivers/dri2/xf86drm.c'),
+  version : egl_lib_version,
+)
+
   files_egl += files(
     'drivers/dri2/egl_dri2.c',
     'drivers/dri2/egl_dri2.h',
@@ -164,6 +181,7 @@ libegl = shared_library(
   ],
   gnu_symbol_visibility : 'hidden',
   include_directories : incs_for_egl,
+  link_whole : with_dri2 ? libxf86drm : [],
   link_with : [link_for_egl, libglapi],
   link_args : [ld_args_bsymbolic, ld_args_gc_sections],
   dependencies : [deps_for_egl, dep_dl, dep_libdrm, dep_clock, dep_thread, idep_mesautil],
