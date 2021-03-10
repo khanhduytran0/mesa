@@ -1436,7 +1436,7 @@ with_gallium_drisw_kms = false
 dep_libdrm = dependency(
   'libdrm', version : '>=' + _drm_ver,
   # GNU/Hurd includes egl_dri2, without drm.
-  required : not with_platform_android and ((with_dri2 and host_machine.system() != 'gnu') or with_dri3)
+  required : (with_dri2 and host_machine.system() != 'gnu') or with_dri3
 )
 if dep_libdrm.found()
   # pre_args += '-DHAVE_LIBDRM'
