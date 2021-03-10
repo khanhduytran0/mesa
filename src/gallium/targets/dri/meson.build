@@ -47,10 +47,9 @@ libgallium_dri = shared_library(
   gnu_symbol_visibility : 'hidden',
   link_args : [ld_args_build_id, ld_args_gc_sections, gallium_dri_ld_args],
   link_depends : gallium_dri_link_depends,
-  link_whole: libpipe_loader_static,
   link_with : [
     libdri, libmesa_gallium, libdricommon, libmegadriver_stub, libgalliumvl,
-    libgallium, libglapi, libws_null, libwsw, libswdri,
+    libgallium, libglapi, libpipe_loader_static, libws_null, libwsw, libswdri,
     libswkmsdri,
   ],
   dependencies : [
