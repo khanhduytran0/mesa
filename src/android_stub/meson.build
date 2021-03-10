@@ -19,11 +19,10 @@ if with_android_stub
     )
   endforeach
 
-# stub_libs,
+  stub_libs += dependency('sync')
+  stub_libs += dependency('nativewindow')
+
   dep_android = declare_dependency(
-    link_with : [
-      dependency('sync'),
-      dependency('nativewindow'),
-    ],
+    link_with : stub_libs,
   )
 endif
