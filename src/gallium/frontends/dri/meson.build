@@ -56,5 +56,5 @@ libdri = static_library(
   c_args : [libdri_c_args],
   gnu_symbol_visibility : 'hidden',
   dependencies : dep_libdrm,
-  link_whole : with_dri2 ? libxf86drm : [],
+  link_with : with_dri2 ? libxf86drm : [],
 )
