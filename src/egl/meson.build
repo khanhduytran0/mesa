@@ -96,12 +96,6 @@ libxf86drm = static_library(
   gnu_symbol_visibility : 'hidden',
 )
 
-libegl = static_library(
-  egl_lib_name,
-  files('drivers/dri2/xf86drm.c'),
-  version : egl_lib_version,
-)
-
   files_egl += files(
     'drivers/dri2/egl_dri2.c',
     'drivers/dri2/egl_dri2.h',
