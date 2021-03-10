@@ -124,7 +124,10 @@ if with_dri2
   endif
   if with_platform_android
     deps_for_egl += dep_android
-    files_egl += files('drivers/dri2/platform_android.c')
+    files_egl += files(
+      'drivers/dri2/platform_android.c',
+      'drivers/dri2/xf86drm.c',
+    )
   endif
 elif with_platform_haiku
   incs_for_egl += inc_haikugl
