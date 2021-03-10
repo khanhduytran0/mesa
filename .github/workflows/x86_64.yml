@@ -25,7 +25,7 @@ jobs:
             --prefix=/tmp/zink \
             --cross-file android-x86_64 \
             -Dplatforms=android \
-            -Dplatform-sdk-version=25 \
+            -Dplatform-sdk-version=26 \
             -Dandroid-stub=true \
             -Dllvm=disabled \
             -Dxlib-lease=disabled \
