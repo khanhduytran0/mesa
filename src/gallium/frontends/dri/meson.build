@@ -31,6 +31,7 @@ files_libdri = files(
   'dri_query_renderer.h',
   'dri_screen.c',
   'dri_screen.h',
+  'xf86drm.c',
 )
 
 if with_dri
