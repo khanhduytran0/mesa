@@ -366,6 +366,11 @@ if with_glx == 'dri'
    if with_gallium
       with_dri = true
    endif
+
+# Attempt to embed Mesa to Android app
+    if with_platform_android
+       with_dri = false
+    endif
 endif
 
 if not (with_dri or with_gallium or with_glx != 'disabled')
