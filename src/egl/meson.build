@@ -136,6 +136,9 @@ libxf86drm = static_library(
   if with_platform_android
     deps_for_egl += dep_android
     files_egl += files('drivers/dri2/platform_android.c')
+    c_args_for_egl += [
+      '-DHAVE_DRM_GRALLOC',
+    ]
   endif
 elif with_platform_haiku
   incs_for_egl += inc_haikugl
