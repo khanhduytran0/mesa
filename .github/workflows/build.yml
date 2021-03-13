@@ -1,11 +1,19 @@
 
-name: Build arm64
+name: CI
 
 on:
   [push, pull_request]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
+    strategy:
+      matrix:
+        platform: [ "aarch64", "x86_64" ]
+      fail-fast: false
+
+    name: "Build ${{ matrix.arch }}"
+
     runs-on: ubuntu-20.04
 
     steps:
@@ -20,9 +28,9 @@ jobs:
           pip3 install mako
           export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk-bundle"
           # -Dglx=gallium-xlib \
-          meson build-android-aarch64 \
+          meson build-android-${{ matrix.arch }} \
             --prefix=/tmp/zink \
-            --cross-file android-aarch64 \
+            --cross-file android-${{ matrix.arch }} \
             -Dplatforms=android \
             -Dplatform-sdk-version=26 \
             -Dandroid-stub=true \
@@ -35,8 +43,8 @@ jobs:
             -Dopengl=true \
             -Dvulkan-drivers= \
             -Dgallium-drivers=zink
-          ninja -C build-android-aarch64 install
-          cp build-android-aarch64/src/gallium/drivers/zink/libzink.a /tmp/zink/lib/
+          ninja -C build-android-${{ matrix.arch }} install
+          cp build-android-${{ matrix.arch }}/src/gallium/drivers/zink/libzink.a /tmp/zink/lib/
 
       - name: Upload libraries
         uses: actions/upload-artifact@v2
