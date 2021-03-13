@@ -369,7 +369,7 @@ if with_glx == 'dri'
 
 # Attempt to embed Mesa to Android app
     if with_platform_android
-       with_dri = false
+       # with_dri = false
     endif
 endif
 
